@@ -1,0 +1,96 @@
+this command is for checking django version
+django-admin --version
+
+this command is for all django subcommands
+django-admin 
+
+Type 'django-admin help <subcommand>' for help on a specific subcommand.
+
+Available subcommands:
+
+[django]
+    check
+    compilemessages
+    createcachetable
+    dbshell
+    diffsettings
+    dumpdata
+    flush
+    inspectdb
+    loaddata
+    makemessages
+    makemigrations
+    migrate
+    optimizemigration
+    runserver
+    sendtestemail
+    shell
+    showmigrations
+    sqlflush
+    sqlmigrate
+    sqlsequencereset
+    squashmigrations
+    startapp
+    startproject
+    test
+    testserver
+Note that only Django core commands are listed as settings are not properly configured (error: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.).
+
+
+{
+
+Sure! These commands are all part of Django's management commands, which help with various tasks related to the Django web framework. Here's a brief explanation of each command:
+
+1. **check**: Checks the entire Django project for common problems without making any changes to the database or files.
+
+2. **compilemessages**: Compiles .po files to .mo files for translation purposes.
+
+3. **createcachetable**: Creates a table for storing cache data in the database.
+
+4. **dbshell**: Opens the database shell using the database connection configured in your Django settings.
+
+5. **diffsettings**: Displays differences between the current settings and Django's default settings.
+
+6. **dumpdata**: Outputs the contents of the database as a JSON, XML, or YAML file. Useful for creating backups or transferring data between projects.
+
+7. **flush**: Removes all data from the database, but leaves the database schema intact. Essentially resets the database to its initial state after migrations have been applied.
+
+8. **inspectdb**: Generates Django model code by introspecting the database tables. Useful for starting projects with existing databases.
+
+9. **loaddata**: Loads data from fixture files (JSON, XML, or YAML) into the database.
+
+10. **makemessages**: Extracts translatable strings from the code and templates to create .po files.
+
+11. **makemigrations**: Creates new migrations based on the changes detected in models.
+
+12. **migrate**: Applies migrations to synchronize the database schema with the current state of the models.
+
+13. **optimizemigration**: Optimizes migration files to reduce the number of database operations.
+
+14. **runserver**: Starts the Django development server on the local machine.
+
+15. **sendtestemail**: Sends a test email using the email backend configured in the settings.
+
+16. **shell**: Opens the Python interactive shell with Django settings pre-loaded.
+
+17. **showmigrations**: Lists all migrations and their status (applied or not).
+
+18. **sqlflush**: Returns the SQL statements needed to flush the database (remove all data).
+
+19. **sqlmigrate**: Displays the SQL statements for a specific migration.
+
+20. **sqlsequencereset**: Outputs SQL statements for resetting database sequences for the specified apps.
+
+21. **squashmigrations**: Combines multiple migrations into a single migration file.
+
+22. **startapp**: Creates a new Django app directory structure.
+
+23. **startproject**: Creates a new Django project directory structure.
+
+24. **test**: Runs the test suite for the project.
+
+25. **testserver**: Runs the development server with a specific database and fixtures, useful for testing.
+
+These commands help streamline various development tasks, from setting up new projects and apps to managing the database and running tests.
+
+}
