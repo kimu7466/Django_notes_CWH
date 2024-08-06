@@ -1,0 +1,2 @@
+this text can be accessed in html.
+this is static file 

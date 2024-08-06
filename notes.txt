@@ -136,3 +136,18 @@ csrf => cross site request forgery ( kisi or malisious site se bachane k liye ne
 
 # netwok me new line ko transport karne k liye \n or \r dono dale jate hain
             
+
+to load static file we need to add 
+{% load static %}
+first and then
+{% static "blog/mystatic.txt" %}
+{% static "foldername/filename" %}
+ya jo bhi foldername/filename ho wo likhna he
+
+
+application dir me "apps.py" file k ander ek class rahegi jo "AppnameConfig" rahegi
+jese 
+"shop" >> apps.py me >> ShopConfig 
+he
+
+to settings.py me jaha "shop" appname register kiya tha wahan se hata kar sab se uper likhna he "shop.apps.ShopConfig"  

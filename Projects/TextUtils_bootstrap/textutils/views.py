@@ -11,7 +11,7 @@ def analyze(request):
     newlineremove = request.POST.get("newlineremove","off")
     spaceremove = request.POST.get("spaceremove","off")
     charcount = request.POST.get("charcount","off")
-    purpose = "None"
+    purpose = ""
     result = djtext
     count = 0
         
@@ -35,7 +35,9 @@ def analyze(request):
         purpose += "New Line Remove. "
         result = ""
         for ch in djtext:
-            if not (ch == "\n" or ch == "\r"):
+            if (ch == "\n" or ch == "\r"):
+                result += " "
+            else:
                 result += ch
         djtext = result
         
@@ -43,8 +45,11 @@ def analyze(request):
         purpose += "Extra Space Remove. "
         result = ""
         for index, ch in enumerate(djtext):
-            if not (djtext[index] == " " and djtext[index+1] == " ") :
-                result += ch
+            try:
+                if not (djtext[index] == " " and djtext[index+1] == " ") :
+                    result += ch
+            except:
+                pass
         djtext = result
         
     if charcount =="on":
@@ -53,6 +58,8 @@ def analyze(request):
         for ch in djtext:
             if not (ch == "\n" or ch == "\r"): 
                 res += ch
+            else:
+                res += " "
         djtext = result
 
         count = len(res)
