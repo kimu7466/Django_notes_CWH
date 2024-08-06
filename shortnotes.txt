@@ -1,77 +1,24 @@
 django-admin
 django-admin help <subcommand>
 
-(django subcommands)
-    check
-    compilemessages
-    createcachetable
-    dbshell
-    diffsettings
-    dumpdata
-    flush
-    inspectdb
-    loaddata
-    makemessages
-    makemigrations
-    migrate
-    optimizemigration
-    runserver
-    sendtestemail
-    shell
-    showmigrations
-    sqlflush
-    sqlmigrate
-    sqlsequencereset
-    squashmigrations
-    startapp
-    startproject
-    test
-    testserver
-
 py manage.py
 
-Type 'manage.py help <subcommand>' for help on a specific subcommand.
+and Type 'manage.py help <subcommand>' for help on a specific subcommand.
 
-Available subcommands:
+# three ways to get data from the form it is possible that there is more ways other than this
 
-[auth]
-    changepassword
-    createsuperuser
+request.method == "get":
 
-[contenttypes]
-    remove_stale_contenttypes
+    request.GET.get("name")
 
-[django]
-    check
-    compilemessages
-    createcachetable
-    dbshell
-    diffsettings
-    dumpdata
-    flush
-    inspectdb
-    loaddata
-    makemessages
-    makemigrations
-    migrate
-    optimizemigration
-    sendtestemail
-    shell
-    showmigrations
-    sqlflush
-    sqlmigrate
-    sqlsequencereset
-    squashmigrations
-    startapp
-    startproject
-    test
-    testserver
+request.method == "post":
 
-[sessions]
-    clearsessions
+    request.POST.get("name")
+    
+    request.POST["name"]
 
-[staticfiles]
-    collectstatic
-    findstatic
-    runserver
+if making website in the main project without starting new app 
+
+add templates as shown below 
+> setting.py > templates section > dir = ["templates"] 
 

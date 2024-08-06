@@ -94,3 +94,45 @@ Sure! These commands are all part of Django's management commands, which help wi
 These commands help streamline various development tasks, from setting up new projects and apps to managing the database and running tests.
 
 }
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+=> method="get"  vs  method="post"
+
+method="get" na bhi likhe to chalega q k ye form tag me by default set hota help
+method="get" ki wajah se url me parameters add ho jane se same page koi bhi access kar sakta he jese youtube channel ka ya video ka link 
+
+method="get" ki wajas se bht se task aese ho sakte hain jo url ko length limit se jyada kar de to error aayega
+method="get" ki wajas se password or many other private datas ki security breach ho jayegi
+method="get" me csrftoken ki jarurat nahi padti
+
+
+aesi situation me method="post" ka use karenge 
+
+method="post" use karne se django by defaut csrf tocken mangta he security purposes k liye
+
+csrf => cross site request forgery ( kisi or malisious site se bachane k liye necessory he )
+
+    # method="get" k time
+    djtext = request.GET.get("text","default")
+    removepunc = request.GET.get("removepunc","off") # on off
+    uppercase = request.GET.get("uppercase","off") # on off
+    newlineremove = request.GET.get("newlineremove","off") # on off
+    spaceremove = request.GET.get("spaceremove","off") # on off
+    charcount = request.GET.get("charcount","off") # on off
+
+    # method = "post" k time
+    djtext = request.POST.get("text","default")
+    removepunc = request.POST.get("removepunc","off") # on off
+    uppercase = request.POST.get("uppercase","off") # on off
+    newlineremove = request.POST.get("newlineremove","off") # on off
+    spaceremove = request.POST.get("spaceremove","off") # on off
+    charcount = request.POST.get("charcount","off") # on off
+
+
+# netwok me new line ko transport karne k liye \n or \r dono dale jate hain
+            

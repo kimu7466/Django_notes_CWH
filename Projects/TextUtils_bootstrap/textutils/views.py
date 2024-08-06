@@ -1,20 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-
-
 def home(request):
     return render (request, "index.html")
 
 def analyze(request):
-    djtext = request.GET.get("text","default")
-    removepunc = request.GET.get("removepunc","off") # on off
-    uppercase = request.GET.get("uppercase","off") # on off
-    newlineremove = request.GET.get("newlineremove","off") # on off
-    spaceremove = request.GET.get("spaceremove","off") # on off
-    charcount = request.GET.get("charcount","off") # on off
+    djtext = request.POST.get("text","default")
+    removepunc = request.POST.get("removepunc","off")
+    uppercase = request.POST.get("uppercase","off")
+    newlineremove = request.POST.get("newlineremove","off")
+    spaceremove = request.POST.get("spaceremove","off")
+    charcount = request.POST.get("charcount","off")
     purpose = "None"
-    result = "N/A"
+    result = djtext
     count = 0
         
     if removepunc =="on":
@@ -37,7 +35,7 @@ def analyze(request):
         purpose += "New Line Remove. "
         result = ""
         for ch in djtext:
-            if not ch == "\n":
+            if not (ch == "\n" or ch == "\r"):
                 result += ch
         djtext = result
         
@@ -48,11 +46,12 @@ def analyze(request):
             if not (djtext[index] == " " and djtext[index+1] == " ") :
                 result += ch
         djtext = result
+        
     if charcount =="on":
         purpose += "character Counter. "
         res = ""
         for ch in djtext:
-            if not (ch == "\n"):
+            if not (ch == "\n" or ch == "\r"): 
                 res += ch
         djtext = result
 
@@ -64,3 +63,5 @@ def analyze(request):
         "count":count
     }
     return render (request, "results.html", context)
+
+    

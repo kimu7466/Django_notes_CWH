@@ -1,4 +1,0 @@
-if making applicatio without startapp in the main project
-
-add templates as shown below 
-> setting.py > templates section > dit = ["templates"] 
