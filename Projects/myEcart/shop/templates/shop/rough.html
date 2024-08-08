@@ -1,0 +1,73 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+{% block style %}
+<style>
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon{
+    background-color: black;
+  }
+  .col-md-3 img{
+    height: 200px;
+  }
+  .card-text{
+    height: 80px;
+    overflow: hidden;
+  }
+  .card-title{
+    height: 50px;
+    overflow: hidden;
+  }
+</style>
+{% endblock style %}
+
+{% block body %}
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    {% for i in range %}
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="{{ forloop.counter }}" aria-label="Slide {{ forloop.counter }}"></button>
+    {% endfor %}
+  </div>
+
+  <div class="carousel-inner w-75 mx-auto">
+    {% for i in products %}
+      {% if forloop.first %}
+        <div class="carousel-item active">
+          <div class="row">
+      {% elif forloop.counter|divisibleby:4 %}
+        <div class="carousel-item">
+          <div class="row">
+      {% endif %}
+
+      <div class="col-xs-3 col-sm-3 col-md-3" style="align-self: center;">
+        <div class="card" style="width: 14rem; height: 30rem;">
+          <img class="card-img-top" src="/media/{{ i.image }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ i.product_name }}</h5>
+            <p class="card-text">{{ i.description }}</p>
+            <h3>RS. {{ i.price }} </h3>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+          </div>
+        </div>
+      </div>
+
+      {% if forloop.counter|divisibleby:4 or forloop.last %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock body %}

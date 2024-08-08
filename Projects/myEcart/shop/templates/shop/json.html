@@ -1,0 +1,41 @@
+{% extends "shop/base.html" %}
+
+{% block title %}about{% endblock title %}
+
+{% block body %}
+
+{% comment %}
+  
+<ul>
+    {% for d in data  %}
+    <li>{{forloop.counter}}. {{ d.city }} -- {{ d.state_name }} -- {{ d.population }}</li>
+    {% endfor %}
+</ul>
+
+
+{% endcomment %}
+
+{% if data %}
+  
+    <ul>
+        {% for d in data  %}
+        <li>ID - {{ d.id }}</li>
+        <h6>{{ d.title }}</h6>
+        <p>{{d.description}}</p>
+        <p>{{d.description}}</p>
+        <p>{{d.category}}</p>
+        <img src="{{d.image}}" style="height: 100px;" alt="">
+        <p>{{d.rating.rate}}</p>
+        <p>{{d.rating.count}}</p>
+        {% endfor %}
+    </ul>
+
+    
+{% elif not data %}
+
+<h1 style="color: red;">NONE</h1>
+
+{% endif %}
+
+
+{% endblock body %}

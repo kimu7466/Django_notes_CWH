@@ -151,3 +151,62 @@ jese
 he
 
 to settings.py me jaha "shop" appname register kiya tha wahan se hata kar sab se uper likhna he "shop.apps.ShopConfig"  
+
+
+
+## managing media 
+{{{
+
+# >> settings.py
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
+# >> urls.py
+urlpatterns=[
+    ...
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+}}}
+
+### fetching products using py manage.py shell
+* >> in cmd or shell 
+1 >> py manage.py shell
+2 >> from shop.models import Products
+3 >> Products.objects.all()
+4 >> x = Products.objects.get(product_name = "TITAN WATCH")
+5 >> x.id, x.name, x.price etc...
+
+{{{
+
+>>> from shop.models import Product
+>>> from django.utils import timezone
+>>> new_prod = Product(product_name= "abc", description = "xyz", publish_date = timezone.now(), category = "mno",subcategory="sss", price="50000" )
+>>> new_prod.save()
+>>> x=  Product.objects.get(product_name="abc") 
+>>> x.price
+50000
+>>> x.product_name
+'abc'
+>>> x.category
+'mno'
+>>> x.subcategory
+'sss'
+
+}}}
+etc.. 
+this is for debugging on shell
+
+### logic for carousal
+
+{{{
+
+    there are 4 items in one slide
+    if we have n items we will have ( n//4 +1 ) slides if n is not devisible by 4 
+    but if n is devisible by for  we have ( n//4 )
+    so the formula for numeber of slides will be 
+
+    ( (n // 4) + ceil( (n/4) - (n//4)) ) 
+
+    where ceil is the least integer function.
+    
+}}}
